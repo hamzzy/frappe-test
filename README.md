@@ -1,7 +1,7 @@
 ### Task Manager
 
 task manager app
-# Tasj 1 instruction
+# Task 1 instruction
 ## Prerequisites
 
 Before installing Task Manager, ensure you have the following prerequisites:
@@ -74,4 +74,9 @@ change directory to the app you create and run
 ```
 bench --site mysite.local  serve
 ```
-Other anwser to the Test are inside Task.md Markdown
+remember to migrate
+```
+bench --site mysite.local migrate
+
+```
+Other anwser to the Test are inside <a href="./Task.md">Task.md Markdown</a>
