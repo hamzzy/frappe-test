@@ -1,40 +1,77 @@
 ### Task Manager
 
 task manager app
+# Tasj 1 instruction
+## Prerequisites
 
-### Installation
+Before installing Task Manager, ensure you have the following prerequisites:
 
-You can install this app using the [bench](https://github.com/frappe/bench) CLI:
+- Python
+- MariaDB
+- Redis
 
+### System Dependencies Installation
+
+1. Install Python:
 ```bash
-cd $PATH_TO_YOUR_BENCH
-bench get-app $URL_OF_THIS_REPO --branch main
-bench install-app task_manager
+brew install python
+brew link python
 ```
 
-### Contributing
-
-This app uses `pre-commit` for code formatting and linting. Please [install pre-commit](https://pre-commit.com/#installation) and enable it for this repository:
-
+2. Install MariaDB and Redis:
 ```bash
-cd apps/task_manager
-pre-commit install
+brew install mariadb redis
 ```
 
-Pre-commit is configured to use the following tools for checking and formatting your code:
+### MariaDB Configuration
 
-- ruff
-- eslint
-- prettier
-- pyupgrade
-### CI
+1. Configure MariaDB by editing the configuration file:
+```bash
+nano /usr/local/etc/my.cnf
+```
 
-This app can use GitHub Actions for CI. The following workflows are configured:
+2. Set your MariaDB root password:
+```bash
+mysql_secure_installation
+```
 
-- CI: Installs this app and runs unit tests on every push to `develop` branch.
-- Linters: Runs [Frappe Semgrep Rules](https://github.com/frappe/semgrep-rules) and [pip-audit](https://pypi.org/project/pip-audit/) on every pull request.
+## Frappe Installation
 
+1. Install Frappe Bench:
+```bash
+pip3 install frappe-bench
+```
 
-### License
+2. Initialize a new Frappe environment:
+```bash
+bench init frappe-dev
+cd frappe-dev
+```
 
-mit
+3. Create a new site:
+```bash
+bench new-site mysite.local
+```
+
+4. Start the Frappe server:
+```bash
+bench start
+```
+
+### App Installation
+
+1. Create a new app:
+```bash
+bench new-app task_manager
+```
+
+2. Install the app to your site:
+```bash
+bench --site mysite.local install-app task_manager
+```
+change directory to the app you create and run
+
+```
+bench --site mysite.local  serve
+```
+Other anwser to the Test are inside Task.md Markdown
